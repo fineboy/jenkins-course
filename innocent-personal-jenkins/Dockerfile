@@ -1,4 +1,4 @@
-FROM jenkins-my-generated-2
+FROM innocent2020/jenkins-my-generated-2
 USER root
 
 RUN mkdir -p /tmp/download && \
