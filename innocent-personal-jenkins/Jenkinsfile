@@ -1,8 +1,12 @@
 node {
-    checkout scm
+      stage ('git checkout stage'{
+            checkout scm
+    }
+     stage ('build/push') {
     docker.withRegistry('https://index.docker.io/v1/', 'innocent2020') {
     def customImage = docker.build("innocent2020/my-jenkins-image:${env.BUILD_ID}")
 
    customImage.push()
     }
+  }
 }
