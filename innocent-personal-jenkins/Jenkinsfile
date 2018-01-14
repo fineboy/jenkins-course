@@ -1,11 +1,8 @@
-pipeline {
-    agent { dockerfile true 
-   } 
-    stages {
-        stage('Example Build') {
-            steps {
-                sh 'echo done'
-            }
-        }
+node {
+    checkout scm
+    docker.withRegistry('https://index.docker.io/v1/', 'innocent2020') {
+    def customImage = docker.build("my-jenkins-image:${env.BUILD_ID}")
+
+   customImage.push()
     }
 }
