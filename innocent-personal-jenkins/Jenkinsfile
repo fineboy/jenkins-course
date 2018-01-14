@@ -1,5 +1,5 @@
 node {
-      stage ('git checkout stage'{
+      stage ('git checkout stage') {
             checkout scm
     }
      stage ('build/push') {
