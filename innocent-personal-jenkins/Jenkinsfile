@@ -9,4 +9,9 @@ node {
    customImage.push()
     }
   }
+     stage('start jenkins') {
+        def jenkins = docker.image('innocent2020/my-jenkins-image:${env.BUILD_ID}').run("-p 7000:8080 -p 50000:50000 -v /your/home:/var/jenkins_home") 
+     
+     }             
+
 }
