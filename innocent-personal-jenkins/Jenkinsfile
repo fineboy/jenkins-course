@@ -12,7 +12,7 @@ node('tomcat-user') {
      stage('start jenkins') {
         def jenkins = docker.image('innocent2020/my-jenkins-image:17').run("-p 7000:8080 -p 50000:50000") 
         
-         jenkins.inside {
+         jenkins.inside (""){
               sh 'while [[ "$RESPONSE" != "200" ]]; do RESPONSE=$(curl --write-out %{http_code} --silent --output /dev/null localhost:7000); echo -ne "."; sleep 5; done'
        
         }    
